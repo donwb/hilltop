@@ -151,7 +151,7 @@ jQuery(document).ready(function($) {
 =============================================== 08. Header Background Images  ===============================================
 */
 	
-	$(".page header").backstretch(["images/demo/page-title.jpg"],{fade:750,});
+	$(".page header").backstretch(["images/page-title.jpg"],{fade:750,});
 
 	
 	
