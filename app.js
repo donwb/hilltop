@@ -33,9 +33,11 @@ app.get('/contact', function(req, res){
 });
 
 app.get('/api/gallery', function(req, res){
-  var ac = new apiController('connect');
-  ac.getGalleryImages(function(){
-    res.send('{}');
+  var connectString = process.env.MONGO_URL;
+
+  var ac = new apiController(connectString);
+  ac.getGalleryImages(function(docs){
+    res.send(docs);
   });
 });
 
