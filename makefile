@@ -5,11 +5,14 @@
 #
 include env
 
-$(info $$DB_USER is [${DB_USER}])
-$(info $$DB_PASSWORD is [${DB_PASSWORD}])
+$(info $$MONGO_URL is [${MONGO_URL}])
+
 
 all:
 	DEBUG=mapadm:* nodemon bin/www
+
+seed:
+	node db/seed.js
 
 docker_build:
 	echo "make sure {ver} is set!"

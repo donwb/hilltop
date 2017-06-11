@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var apiController = require('./api');
+
 var app = express();
 
 // view engine setup
@@ -29,6 +31,14 @@ app.get('/', function(req, res){
 app.get('/contact', function(req, res){
   res.sendfile(path.join(__dirname + '/public/contact.html'));
 });
+
+app.get('/api/gallery', function(req, res){
+  var ac = new apiController('connect');
+  ac.getGalleryImages(function(){
+    res.send('{}');
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
