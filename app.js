@@ -41,6 +41,15 @@ app.get('/api/gallery', function(req, res){
   });
 });
 
+app.get('/api/slider', function(req, res){
+  var connectString = process.env.MONGO_URL;
+
+  var ac = new apiController(connectString);
+  ac.getSliderImages(function(docs){
+    res.send(docs);
+  });
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

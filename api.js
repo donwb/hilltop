@@ -7,14 +7,23 @@ var Api = function(cs) {
 }
 
 Api.prototype.getGalleryImages = function(callback){
-    console.log(connectString);
-    MongoClient.connect(connectString, function(err, db){
-        var coll = db.collection('gallery');
-        
-        coll.find({}).toArray(function(err, docs){
-            console.log(err);
-            console.log(docs);
+    query('gallery', function(docs){
+        callback(docs);
+    });
+}
 
+Api.prototype.getSliderImages = function(callback){
+    query('slider', function(docs){
+        callback(docs);
+    });
+}
+
+function query(collection, callback){
+    
+    MongoClient.connect(connectString, function(err, db){
+        var coll = db.collection(collection);
+
+        coll.find({}).toArray(function(err, docs){
             callback(docs);
         });
     });
