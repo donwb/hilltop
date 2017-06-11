@@ -16,7 +16,6 @@ function getGallery() {
 
         
         $('#myimages').replaceWith(res);
-        //$(".ls-sc-toggle-trigger").click(function(){$(this).toggleClass("active").next().slideToggle("fast");return false; });
         $("a[data-rel^='prettyPhoto']").prettyPhoto({
             animation_speed: 'fast', /* fast/slow/normal */
             slideshow: 5000, /* false OR interval time in ms */
