@@ -13,7 +13,7 @@ MongoClient.connect(url, function(err, db) {
   coll.insertMany(gi.galleryImages);
   
   var slider = db.collection('slider');
-  slider.insertMany(sl.sliderImages);
+  //slider.insertMany(sl.sliderImages);
 
   console.log('done....');
 
